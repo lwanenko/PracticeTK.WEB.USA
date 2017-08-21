@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Про практику";
+    if (User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_LayoutIdentity.cshtml";
+    }
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p></p>

@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Контакти";
+    if (User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_LayoutIdentity.cshtml";
+    }
+}
+
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<address>
+    <strong>Support:</strong> <a href="mailto:iwanenkova@gmail.com">iwanenkoVA@gmail.com</a><br />
+   
+</address>

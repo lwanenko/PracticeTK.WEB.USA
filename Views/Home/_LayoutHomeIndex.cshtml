@@ -1,0 +1,101 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+
+<head>
+    <title>Практика</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="~/css/HomeIndex.css" />
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+
+   
+        <div class="container">
+            
+            <div class="row">
+                <nav class="col-sm-3" id="myScrollspy">                
+                    <div>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#section1">Sign Up</a></liclass="active">
+                            <li><a href="#section2">Login</a></li>
+                            <li><a href="#section3">Чат</a></li>
+                            <li><a href="#section4">Про практику</a></li>
+                            <li><a href="#section5">Контакти</a></li>
+                        </ul>
+                    </div>                     
+                </nav>
+                <div class="col-sm-9">
+                    @RenderBody()
+                    <div id="section1">
+                        <h1>Sign Up</h1>
+                        <p>Зареєструйся та підтвердь свою почту</p> 
+                        <div class="btn-group btn-group-lg">
+                            <a asp-area="" asp-controller="Identity" asp-action="SignUp" class="btn btn-success" role="button">Зареєструватися</a>
+                        </div>
+                    <div id="section2">
+                        <h1>Login</h1>
+                        <p>Заходь і ти зможеш спілкуватися в чаті</p>
+                        <div class="btn-group btn-group-lg">
+                            <a asp-area="" asp-controller="Identity" asp-action="Login" class="btn btn-success" role="button">Ввійти</a>
+                        </div>
+                    <div id="section3">
+                        <h1>Чат</h1>
+                        <p>Спілкуйся з учасниками практики</p>
+                        <div class="btn-group btn-group-lg">
+                            <a asp-area="" asp-controller="Chat" asp-action="Index" class="btn btn-success" role="button">Чат</a>
+                        </div>
+                    <div id="section4">
+                        <h1>Про практику</h1>
+                        <div class="btn-group btn-group-lg">
+                            <a asp-area="" asp-controller="Home" asp-action="About" class="btn btn-success" role="button">Детальніше</a>
+                        </div>
+                    <div id="section5">
+                        <h1> Контакти</h1>
+                        <div class="btn-group btn-group-lg">
+                            <a asp-area="" asp-controller="Home" asp-action="Contact" class="btn btn-success" role="button">Детальніше</a>
+                        </div>
+                </div>
+            </div>
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; 2017 - PracticeTK</p>
+                </footer>
+            </div>
+        <environment names="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment names="Staging,Production">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
+
+        @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+

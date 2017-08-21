@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "Вихід";
+    if (User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_LayoutIdentity.cshtml";
+    }
+}
